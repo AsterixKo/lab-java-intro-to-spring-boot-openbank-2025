@@ -87,4 +87,10 @@ public class PatientsController {
             return null;
         }
     }
+
+    @GetMapping("/byStatusOFF")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> getPatientsByStatusOFF() {
+        return patientsRepository.findAllByEmployeesStatus(Status.OFF);
+    }
 }
