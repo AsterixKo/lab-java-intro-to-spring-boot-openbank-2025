@@ -59,6 +59,7 @@ Patient Table
 ## Instructions
 
 1. **Get all doctors:** Create a route to get all doctors.
+![](getAllDoctors.png)
 2. **Get doctor by ID:** Create a route to get a doctor by `employee_id`.
 3. **Get doctors by status:** Create a route to get doctors by `status`.
 4. **Get doctors by department:** Create a route to get doctors by `department`.
