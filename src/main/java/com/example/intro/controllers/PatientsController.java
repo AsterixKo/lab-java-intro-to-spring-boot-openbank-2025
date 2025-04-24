@@ -62,4 +62,17 @@ public class PatientsController {
         return patientsRepository.findAllByDateOfBirthBetween(sqlDateStart, sqlDateEnd);
 
     }
+
+    @GetMapping("/byDepartment")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> getPatientsByDepartment(
+            @RequestParam(name = "department", required = true) Optional<String> departmentOptional) {
+
+        if (departmentOptional.isPresent()) {
+            return patientsRepository.findAllByEmployeesDepartment(Department.valueOf(departmentOptional.get().toUpperCase()));
+        }else {
+            return null;
+        }
+
+    }
 }
