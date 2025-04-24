@@ -63,7 +63,9 @@ Patient Table
 2. **Get doctor by ID:** Create a route to get a doctor by `employee_id`.
 ![](getEmployeeById.png)
 3. **Get doctors by status:** Create a route to get doctors by `status`.
+![](getEmployeeByStatus.png)
 4. **Get doctors by department:** Create a route to get doctors by `department`.
+![](getEmployeesByDepartment.png)
 5. **Get all patients:** Create a route to get all patients.
 6. **Get patient by ID:** Create a route to get a patient by `patient_id`.
 7. **Get patients by date of birth range:** Create a route to get patients date of birth within a specified range.
