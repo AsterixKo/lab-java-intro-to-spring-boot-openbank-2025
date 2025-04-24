@@ -3,6 +3,7 @@ package com.example.intro.controllers;
 import com.example.intro.models.Department;
 import com.example.intro.models.Employee;
 import com.example.intro.models.Patient;
+import com.example.intro.models.Status;
 import com.example.intro.repositories.PatientsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,7 +61,6 @@ public class PatientsController {
         sqlDateEnd = new java.sql.Date(utilDateEnd.getTime());
 
         return patientsRepository.findAllByDateOfBirthBetween(sqlDateStart, sqlDateEnd);
-
     }
 
     @GetMapping("/byDepartment")
@@ -69,10 +69,22 @@ public class PatientsController {
             @RequestParam(name = "department", required = true) Optional<String> departmentOptional) {
 
         if (departmentOptional.isPresent()) {
-            return patientsRepository.findAllByEmployeesDepartment(Department.valueOf(departmentOptional.get().toUpperCase()));
-        }else {
+            return patientsRepository.findAllByEmployeesDepartment(
+                    Department.valueOf(departmentOptional.get().toUpperCase()));
+        } else {
             return null;
         }
+    }
 
+    @GetMapping("/byStatus")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> getPatientsByStatus(
+            @RequestParam(name = "status", required = true) Optional<String> statusOptional) {
+
+        if (statusOptional.isPresent()) {
+            return patientsRepository.findAllByEmployeesStatus(Status.valueOf(statusOptional.get().toUpperCase()));
+        } else {
+            return null;
+        }
     }
 }
